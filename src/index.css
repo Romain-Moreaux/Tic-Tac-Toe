@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,9 +9,78 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-top: 150px;
+  background-color: #fff1c1;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  max-width: 1280px;
+  padding: 0 8rem;
+  margin: auto;
+}
+
+.player {
+  color: #293462;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.player > span {
+  color: #fe5f55;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.Board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+  height: 180px;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.cell:not(:nth-last-of-type(-n + 3)) {
+  border-bottom: 4px solid #a64942;
+}
+
+.cell:nth-of-type(2),
+.cell:nth-of-type(5),
+.cell:nth-of-type(8) {
+  border-left: 4px solid #a64942;
+  border-right: 4px solid #a64942;
+}
+
+.cell.x,
+.cell.o {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75% 75%;
+}
+
+.cell.o {
+  background-image: url("./circle-outline.svg");
+}
+.cell.x {
+  background-image: url("./crossmark.svg");
+}
+
+.game-over {
+  color: #a64942;
+  font-size: 35px;
 }
